@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+@import "tailwindcss";
+@theme {
+  --font-primary: "Lexend";
+  --animate-pulseAni: pulse-animation 1s ease-in-out infinite;
+  @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    }
+  }
+}
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+  .autoColumn {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+body {
+  @apply font-primary;
+}
