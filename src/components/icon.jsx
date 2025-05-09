@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Icon = () => {
+  const isShopping = useSelector((state) => state.changePage.value);
   return (
-    <div className="flex justify-between items-center w-full p-2.5 pr-5">
+    <div className="flex justify-between items-center w-full p-2.5 pr-5 fixed">
       <Link to="/">
-        <div className="icon text-white flex gap-2.5 ">
+        <div className={`icon ${isShopping ? "text-green-800" : "text-white"} flex gap-2.5`}>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10%" viewBox="0 0 400 544" enableBackground="new 0 0 400 544" xmlSpace="preserve">
             <path
-              fill="currentcolor"
+              fill="currentColor"
               opacity="1.000000"
               stroke="none"
               d="
@@ -84,15 +86,15 @@ z"
       </Link>
 
       <div className="relative w-fit group">
-        <p className="absolute text-white top-1/2 left-1/2 translate-x-[-35%] translate-y-[-60%] group-hover:text-black font-medium">0</p>
-        <svg width="30px" height="30px" viewBox="0 0 0.563 0.563" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path className="transition-opacity duration-150 opacity-100 ease-in-out group-hover:opacity-0" d="m0.019 0.019 0.022 0.075m0 0 0.09 0.3h0.412v-0.225a0.075 0.075 0 0 0 -0.075 -0.075zm0.427 0.45a0.037 0.037 0 1 1 0 -0.075 0.037 0.037 0 0 1 0 0.075Zm-0.3 -0.037a0.037 0.037 0 1 1 0.075 0 0.037 0.037 0 0 1 -0.075 0Z" stroke="#ffffff" strokeWidth="0.0375" />
+        <p className={`absolute ${isShopping ? "text-green-800" : "text-white"} top-1/2 left-1/2 translate-x-[-35%] translate-y-[-60%] ${isShopping ? "group-hover:text-white" : "group-hover:text-black"} font-medium`}>0</p>
+        <svg className={isShopping ? "text-green-800" : "text-white"} width="30px" height="30px" viewBox="0 0 0.563 0.563" xmlns="http://www.w3.org/2000/svg">
+          <path className="transition-opacity duration-150 opacity-100 ease-in-out group-hover:opacity-0" d="m0.019 0.019 0.022 0.075m0 0 0.09 0.3h0.412v-0.225a0.075 0.075 0 0 0 -0.075 -0.075zm0.427 0.45a0.037 0.037 0 1 1 0 -0.075 0.037 0.037 0 0 1 0 0.075Zm-0.3 -0.037a0.037 0.037 0 1 1 0.075 0 0.037 0.037 0 0 1 -0.075 0Z" stroke="currentColor" strokeWidth="0.0375" fill="none" />
 
-          <path className="transition-opacity duration-150 opacity-0 ease-in-out group-hover:opacity-100" d="M0.037 0.013 0.001 0.024 0.117 0.412H0.563V0.169A0.094 0.094 0 0 0 0.469 0.075H0.055z" fill="white" />
+          <path className="transition-opacity duration-150 opacity-0 ease-in-out group-hover:opacity-100" d="M0.037 0.013 0.001 0.024 0.117 0.412H0.563V0.169A0.094 0.094 0 0 0 0.469 0.075H0.055z" fill="currentColor" />
 
-          <path className="transition-opacity duration-150 opacity-0 ease-in-out group-hover:opacity-100" fillRule="evenodd" clipRule="evenodd" d="M0.206 0.45a0.056 0.056 0 1 0 0 0.112 0.056 0.056 0 0 0 0 -0.112M0.188 0.506a0.019 0.019 0 1 1 0.037 0 0.019 0.019 0 0 1 -0.037 0" fill="white" />
+          <path className="transition-opacity duration-150 opacity-0 ease-in-out group-hover:opacity-100" fillRule="evenodd" clipRule="evenodd" d="M0.206 0.45a0.056 0.056 0 1 0 0 0.112 0.056 0.056 0 0 0 0 -0.112M0.188 0.506a0.019 0.019 0 1 1 0.037 0 0.019 0.019 0 0 1 -0.037 0" fill="currentColor" />
 
-          <path className="transition-opacity duration-150 opacity-0 ease-in-out group-hover:opacity-100" fillRule="evenodd" clipRule="evenodd" d="M0.469 0.45a0.056 0.056 0 1 0 0 0.112 0.056 0.056 0 0 0 0 -0.112m-0.019 0.056a0.019 0.019 0 1 1 0.037 0 0.019 0.019 0 0 1 -0.037 0" fill="white" />
+          <path className="transition-opacity duration-150 opacity-0 ease-in-out group-hover:opacity-100" fillRule="evenodd" clipRule="evenodd" d="M0.469 0.45a0.056 0.056 0 1 0 0 0.112 0.056 0.056 0 0 0 0 -0.112m-0.019 0.056a0.019 0.019 0 1 1 0.037 0 0.019 0.019 0 0 1 -0.037 0" fill="currentColor" />
         </svg>
       </div>
     </div>
