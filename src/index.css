@@ -29,7 +29,16 @@
   .autoColumn {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
+  .absolute-center {
+    @apply absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%];
+  }
+  .fixed-center {
+    @apply fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%];
+  }
 }
 body {
   @apply font-primary transition-all duration-500;
+}
+.scrollBar-hidden::-webkit-scrollbar {
+  display: none;
 }

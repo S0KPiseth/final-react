@@ -10,14 +10,18 @@ export default function useLoadPlant(pageNum) {
   useEffect(() => {
     setIstLoading(true);
     axios
-      .get("https://perenual.com/api/v2/species-list", {
-        params: {
-          key: API_KEY,
-          page: pageNum,
-          indoor: 1,
-        },
-      })
+      // .get("https://perenual.com/api/v2/species-list", {
+      //   params: {
+      //     key: API_KEY,
+      //     page: pageNum,
+      //     indoor: 1,
+      //   },
+      // })
+
+      //-----for testing-----//
+      .get("plants.json")
       .then((res) => {
+        console.log(res);
         setPlant((pre) => {
           return [...pre, ...res.data.data];
         });

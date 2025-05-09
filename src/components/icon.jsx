@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-const Icon = () => {
+const Icon = (props) => {
   const isShopping = useSelector((state) => state.changePage.value);
+  const carItems = useSelector((state) => state.cartItems.itemsArrays);
   return (
-    <div className="flex justify-between items-center w-full p-2.5 pr-5 fixed">
+    <div className="flex justify-between items-center w-full p-2.5 pr-5">
+      <p className="bg-green-100 text-center absolute-center w-1/2 p-2 rounded-full">
+        <a href="" className="underline ">
+          Get 10% off
+        </a>{" "}
+        your first order! Use code: GREEN10
+      </p>
       <Link to="/">
         <div className={`icon ${isShopping ? "text-green-800" : "text-white"} flex gap-2.5`}>
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10%" viewBox="0 0 400 544" enableBackground="new 0 0 400 544" xmlSpace="preserve">
@@ -85,8 +92,13 @@ z"
         </div>
       </Link>
 
-      <div className="relative w-fit group">
-        <p className={`absolute ${isShopping ? "text-green-800" : "text-white"} top-1/2 left-1/2 translate-x-[-35%] translate-y-[-60%] ${isShopping ? "group-hover:text-white" : "group-hover:text-black"} font-medium`}>0</p>
+      <div
+        className="relative w-fit group cursor-pointer"
+        onClick={() => {
+          props.setIsOpenCart(true);
+        }}
+      >
+        <p className={`absolute ${isShopping ? "text-green-800" : "text-white"} top-1/2 left-1/2 translate-x-[-35%] translate-y-[-60%] ${isShopping ? "group-hover:text-white" : "group-hover:text-black"} font-medium`}>{carItems.length !== 0 ? carItems.reduce((total, item) => total + item.quantity, 0) : 0}</p>
         <svg className={isShopping ? "text-green-800" : "text-white"} width="30px" height="30px" viewBox="0 0 0.563 0.563" xmlns="http://www.w3.org/2000/svg">
           <path className="transition-opacity duration-150 opacity-100 ease-in-out group-hover:opacity-0" d="m0.019 0.019 0.022 0.075m0 0 0.09 0.3h0.412v-0.225a0.075 0.075 0 0 0 -0.075 -0.075zm0.427 0.45a0.037 0.037 0 1 1 0 -0.075 0.037 0.037 0 0 1 0 0.075Zm-0.3 -0.037a0.037 0.037 0 1 1 0.075 0 0.037 0.037 0 0 1 -0.075 0Z" stroke="currentColor" strokeWidth="0.0375" fill="none" />
 

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import PLANT_DATA from "../assets/plant_data";
-import Plant from "../components/plant";
 import useLoadPlant from "../useLoadPlant";
 import PlantMorph from "../components/loader";
 import { useSelector, useDispatch } from "react-redux";
 import { change } from "../state/changePageSlice";
+import Icon from "../components/icon";
+import { Plant } from "../components/plant";
 
 const Shop = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -14,11 +15,10 @@ const Shop = () => {
   useEffect(() => {
     //change body background color
     document.body.style.backgroundColor = "white";
-    console.log(isShop);
+
     if (isShop === false) {
       dispatch(change());
     }
-    console.log(isShop);
   }, []);
 
   const categories = [
@@ -40,7 +40,11 @@ const Shop = () => {
 
   return (
     <>
-      <div className="bg-radial from-white">
+      <div className="bg-[#effbf5]">
+        <div className="invisible">
+          <Icon />
+        </div>
+
         {categories.map((category) => {
           return (
             <div className="flex flex-col">
@@ -50,9 +54,6 @@ const Shop = () => {
             </div>
           );
         })}
-        {/* {plant.map((e, index) => (
-          <Plant key={index} plantList={e} price={10} image={e.default_image ? e.default_image.original_url : "/img/noimagelarge.png"} />
-        ))} */}
       </div>
       <PlantMorph />
     </>
