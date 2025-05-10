@@ -13,7 +13,7 @@ export const Plant = (props) => {
       <p className="text-gray-500">${props.price}</p>
       <div>
         <button
-          className="p-2 bg-green-800 rounded-full text-white w-1/2"
+          className="p-2 bg-green-800 rounded-full text-white w-1/2 cursor-pointer"
           onClick={() => {
             const targetPlant = { ...props.plantList };
             targetPlant.quantity = 1;

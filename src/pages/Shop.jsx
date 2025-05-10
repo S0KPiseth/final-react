@@ -7,7 +7,7 @@ import { change } from "../state/changePageSlice";
 import Icon from "../components/icon";
 import { Plant } from "../components/plant";
 
-const Shop = () => {
+const Shop = (props) => {
   const [pageNum, setPageNum] = useState(1);
   const { plant, isLoading } = useLoadPlant(pageNum);
   const isShop = useSelector((state) => state.changePage.value);
@@ -40,22 +40,26 @@ const Shop = () => {
 
   return (
     <>
-      <div className="bg-[#effbf5]">
+      <div className={`bg-[#effbf5] ${props.isOpenCart && "blur-sm h-screen overflow-y-hidden"} min-h-screen ${isLoading && "place-content-center"}`}>
         <div className="invisible">
           <Icon />
         </div>
 
-        {categories.map((category) => {
-          return (
-            <div className="flex flex-col">
-              <h1 className="text-center text-5xl font-[Qurova]">{category}</h1>
-              <br />
-              <div className="flex flex-wrap w-full justify-evenly gap-5">{plant.map((e, index) => PLANT_DATA[index].benefits.includes(category) && <Plant key={index} plantList={e} price={(Math.random() * 100).toFixed(2)} image={e.default_image ? e.default_image.original_url : "/img/noimagelarge.png"} />)}</div>
-            </div>
-          );
-        })}
+        {isLoading ? (
+          <PlantMorph />
+        ) : (
+          categories.map((category, idx) => {
+            return (
+              <div className="flex flex-col" key={`${category}${idx}`}>
+                <h1 className="text-center text-5xl font-[Qurova]">{category}</h1>
+                <br />
+                <div className="flex flex-wrap w-full justify-evenly gap-5">{plant.map((e, index) => PLANT_DATA[index].benefits.includes(category) && <Plant key={index} plantList={e} price={(Math.random() * 100).toFixed(2)} image={e.default_image ? e.default_image.original_url : "/img/noimagelarge.png"} />)}</div>
+                <br />
+              </div>
+            );
+          })
+        )}
       </div>
-      <PlantMorph />
     </>
   );
 };

@@ -5,7 +5,7 @@ const Icon = (props) => {
   const carItems = useSelector((state) => state.cartItems.itemsArrays);
   return (
     <div className="flex justify-between items-center w-full p-2.5 pr-5">
-      <p className="bg-green-100 text-center absolute-center w-1/2 p-2 rounded-full">
+      <p className="hidden md:block bg-green-100 text-center absolute left-1/2 transform -translate-x-1/2 md:w-1/2 p-2 md:rounded-2xl">
         <a href="" className="underline ">
           Get 10% off
         </a>{" "}

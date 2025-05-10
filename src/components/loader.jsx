@@ -71,7 +71,7 @@ const PlantMorph = () => {
   }, []);
 
   return (
-    <div className=" bg-white flex flex-col justify-center items-center h-fit relative">
+    <div className="bg-[#effbf5] flex flex-col justify-center items-center h-fit relative">
       <div className="w-40 h-40 rounded-full flex flex-col justify-center items-center relative">
         {/* Leaf SVG */}
         <div className="h-20 w-20 absolute m-auto inset-0" id="leaf_div">

@@ -15,9 +15,20 @@ function App() {
       </div>
       {isOpenCart && <Cart setIsOpenCart={setIsOpenCart} />}
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/" element={<Landing isOpenCart={isOpenCart} />} />
+        <Route path="/shop" element={<Shop isOpenCart={isOpenCart} />} />
       </Routes>
+      <div className="fixed top-0 w-full">
+        <div className="invisible">
+          <Icon setIsOpenCart={setIsOpenCart} />
+        </div>
+        <p className="block md:hidden bg-green-100 text-center  w-full p-2">
+          <a href="" className="underline ">
+            Get 10% off
+          </a>{" "}
+          your first order! Use code: GREEN10
+        </p>
+      </div>
     </BrowserRouter>
   );
 }

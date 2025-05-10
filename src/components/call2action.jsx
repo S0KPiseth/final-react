@@ -1,7 +1,7 @@
 const Call2Action = () => {
   return (
     <div className="icon flex text-green-500 flex flex-col items-center">
-      <svg className="w-15 border-2 aspect-square rounded-full p-3 hover:bg-green-500 hover:drop-shadow-2xl hover:drop-shadow-green-500/50 animate-pulseAni" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 400 544" enable-background="new 0 0 400 544" xml:space="preserve">
+      <svg className="w-15 border-2 aspect-square rounded-full p-3 hover:bg-green-500 hover:drop-shadow-2xl hover:drop-shadow-green-500/50 animate-pulseAni" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 400 544" enableBackground="new 0 0 400 544" xmlSpace="preserve">
         <path
           className=""
           fill="white"
