@@ -44,6 +44,12 @@ const Shop = (props) => {
         <div className="invisible">
           <Icon />
         </div>
+        <p className="block md:hidden bg-green-100 text-center  w-full p-2 invisible">
+          <a href="" className="underline ">
+            Get 10% off
+          </a>{" "}
+          your first order! Use code: GREEN10
+        </p>
 
         {isLoading ? (
           <PlantMorph />

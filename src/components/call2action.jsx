@@ -1,13 +1,19 @@
 const Call2Action = () => {
   return (
-    <div className="icon flex text-green-500 flex flex-col items-center">
-      <svg className="w-15 border-2 aspect-square rounded-full p-3 hover:bg-green-500 hover:drop-shadow-2xl hover:drop-shadow-green-500/50 animate-pulseAni" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 400 544" enableBackground="new 0 0 400 544" xmlSpace="preserve">
-        <path
-          className=""
-          fill="white"
-          opacity="1.000000"
-          stroke="none"
-          d="
+    <div className="icon flex flex-col items-center text-green-500">
+      <div
+        className="w-17 aspect-square border-2 border-green-500 rounded-full p-2 
+                  hover:bg-green-500 hover:drop-shadow-2xl 
+                  hover:drop-shadow-green-500/50 animate-pulseAni 
+                  flex justify-center items-center"
+      >
+        <svg className="w-13 aspect-square rounded-full p-2" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 400 544" enableBackground="new 0 0 400 544" xmlSpace="preserve">
+          <path
+            className=""
+            fill="white"
+            opacity="1.000000"
+            stroke="none"
+            d="
       M401.000000,344.531342 
       C396.992920,365.331635 390.764160,384.902740 381.354614,403.431915 
       C370.583313,424.642639 357.283691,444.133209 341.547577,461.928558 
@@ -71,9 +77,10 @@ const Call2Action = () => {
       C179.813065,404.104950 211.757065,418.879944 245.650696,429.825165 
       C261.965607,435.093689 278.684357,438.541565 295.554291,441.354187 
       C297.571442,441.690460 299.895416,442.574738 301.478180,439.338776 
-  z"
-        />
-      </svg>
+        z"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

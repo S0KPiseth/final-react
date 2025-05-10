@@ -15,7 +15,7 @@ const CartItemCard = (props) => {
           <span className="lg:text-sm text-xs font-normal text-gray-600">({props.targetplant.scientific_name})</span>
         </p>
         <p>
-          <span>{props.targetplant.quantity} x </span>${props.targetplant.price}
+          <span className="lg:hidden">{props.targetplant.quantity} x </span>${props.targetplant.price}
         </p>
         <div className="flex flex-row-reverse justify-center gap-2 row-start-2 lg:row-start-1 lg:col-start-5">
           <button
