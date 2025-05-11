@@ -59,7 +59,7 @@ const Shop = (props) => {
               <div className="flex flex-col" key={`${category}${idx}`}>
                 <h1 className="text-center text-5xl font-[Qurova]">{category}</h1>
                 <br />
-                <div className="flex flex-wrap w-full justify-evenly gap-5">{plant.map((e, index) => PLANT_DATA[index].benefits.includes(category) && <Plant key={index} plantList={e} price={(Math.random() * 100).toFixed(2)} image={e.default_image ? e.default_image.original_url : "/img/noimagelarge.png"} />)}</div>
+                <div className="flex flex-wrap w-full justify-evenly gap-5">{plant.map((e, index) => PLANT_DATA[index].benefits.includes(category) && <Plant key={index} plantList={e} price={(Math.random() * 100).toFixed(2)} image={e.default_image ? e.default_image.original_url : "./img/noimagelarge.png"} />)}</div>
                 <br />
               </div>
             );
