@@ -44,7 +44,7 @@ function App() {
       {loadedCount < totalAssets ? (
         <FirstTimeLoad value={loadingPercent} />
       ) : (
-        <BrowserRouter>
+        <BrowserRouter basename="/final-react">
           <div className="top-0 w-full z-50 fixed">
             <Icon setIsOpenCart={setIsOpenCart} />
           </div>
