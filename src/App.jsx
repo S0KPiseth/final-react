@@ -7,7 +7,7 @@ import Cart from "./components/cart";
 import { useState, useEffect } from "react";
 import FirstTimeLoad from "./components/firstTimeLoad";
 
-const imageAssets = ["/img/middleLeaf.png", "/img/webicon.png"];
+const imageAssets = ["./img/middleLeaf.png", "./img/webicon.png"];
 
 function App() {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -25,7 +25,7 @@ function App() {
     });
 
     // Load fonts
-    const fonts = [new FontFace("Qurova", "url(/font/Qurova/QurovaDEMO-Regular.otf)", { weight: "400" }), new FontFace("Qurova", "url(/font/Qurova/QurovaDEMO-Medium.otf)", { weight: "500" }), new FontFace("Liebling", "url(/font/Liebling/fonnts.com-Liebling_Medium.otf)", { weight: "500" })];
+    const fonts = [new FontFace("Qurova", "url(./font/Qurova/QurovaDEMO-Regular.otf)", { weight: "400" }), new FontFace("Qurova", "url(./font/Qurova/QurovaDEMO-Medium.otf)", { weight: "500" }), new FontFace("Liebling", "url(./font/Liebling/fonnts.com-Liebling_Medium.otf)", { weight: "500" })];
 
     Promise.all(fonts.map((f) => f.load())).then((loaded) => {
       loaded.forEach((f) => document.fonts.add(f));

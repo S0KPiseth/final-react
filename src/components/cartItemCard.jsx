@@ -7,7 +7,7 @@ const CartItemCard = (props) => {
   return (
     <>
       <div className="h-1/5 lg:h-1/3 grid grid-cols-4 lg:grid-cols-6 lg:grid-rows-1 grid-rows-2 mb-1 items-center bg-white pr-3">
-        <div className="bg-cover w-full h-full bg-center" style={{ backgroundImage: props.targetplant.default_image ? `url(${props.targetplant.default_image.original_url})` : `url('/img/noimagelarge.png')` }}>
+        <div className="bg-cover w-full h-full bg-center" style={{ backgroundImage: props.targetplant.default_image ? `url(${props.targetplant.default_image.original_url})` : `url('./img/noimagelarge.png')` }}>
           &nbsp;
         </div>
         <p className="grow md:text-xl font-bold pl-5 col-span-2">
