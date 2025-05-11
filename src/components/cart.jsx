@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { applyCoupon } from "../state/couponSlice";
 import { useState, useEffect } from "react";
 import { checkOut } from "../state/cartItems";
+import PaymentProcessing from "./paymentProcessing";
 export default function Cart(props) {
   const carItems = useSelector((state) => state.cartItems.itemsArrays);
   const isValid = useSelector((state) => state.couponCode.valid);
@@ -13,9 +14,9 @@ export default function Cart(props) {
   const dispatcher = useDispatch();
   const [status, setStatus] = useState("idle");
   const [openSum, setOpenSum] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState("idle");
 
   useEffect(() => {
-    console.log("hi");
     if (status === "idle") return;
 
     const inputTarget = document.getElementById("couponCode");
@@ -50,7 +51,7 @@ export default function Cart(props) {
         <br />
         <div className="flex grow h-11/12 gap-5 lg:flex-row flex-col relative">
           <div className="w-full lg:w-8/12 h-full">
-            <div className="grid-cols-6 w-full pr-3 hidden md:grid">
+            <div className="grid-cols-6 w-full pr-3 hidden lg:grid">
               <p className="col-span-3">Name</p>
               <p>Price </p>
               <p className="text-center">Quantity</p>
@@ -143,7 +144,19 @@ export default function Cart(props) {
               <button
                 className="p-2 bg-green-800 text-white rounded-md"
                 onClick={() => {
-                  dispatcher(checkOut());
+                  if (carItems.length > 0) {
+                    setPaymentStatus("processing");
+
+                    setTimeout(() => {
+                      setPaymentStatus("complete");
+                      dispatcher(checkOut());
+
+                      setTimeout(() => {
+                        props.setIsOpenCart(false);
+                        setPaymentStatus("idle");
+                      }, 500);
+                    }, 2000);
+                  }
                 }}
               >
                 Proceed to check out
@@ -151,6 +164,11 @@ export default function Cart(props) {
             </div>
           </div>
         </div>
+        {paymentStatus != "idle" && (
+          <div className="absolute-center z-20 h-full w-full flex justify-center items-center">
+            <PaymentProcessing paymentStatus={paymentStatus} />
+          </div>
+        )}
       </div>
     </>
   );
